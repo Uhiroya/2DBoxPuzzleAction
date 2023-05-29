@@ -4,23 +4,31 @@ using UnityEngine;
 
 public class RayMamager : MonoBehaviour
 {
-    LineRenderer linerend;
-    RaycastHit2D hit_info;
+    RaycastHit2D _hitInfo;
     [SerializeField]
-    float addforce = 50 ;
+    float _addForce = 50 ;
     
     // Start is called before the first frame update
     void Update()
     {
-
-        hit_info = Physics2D.Raycast(transform.position, transform.up * 10,10);
+        int layerMask = ~LayerMask.GetMask(new string[] {"Field"});
+        _hitInfo = Physics2D.Raycast(transform.position, transform.up * 10,10,layerMask);
         Debug.DrawRay(transform.position, transform.up * 10 );
         // colliderÇÃíÜêgÇ™îÒnullÇ»ÇÁåç∑óLÇË
-        if (hit_info.collider != null&& hit_info.rigidbody != null)
+        if (_hitInfo.collider != null && _hitInfo.rigidbody != null)
         {
-            hit_info.rigidbody.AddForce(transform.up * addforce);
+            //Debug.Log(gameObject.name + $"{transform.up);
+            var force = transform.up.normalized * _addForce;
+            Debug.Log($"{name}: {force}, {_hitInfo.rigidbody.velocity}");
+            _hitInfo.rigidbody.AddForce(force);
+            if(_hitInfo.collider.tag == "Player")
+            {
+                _hitInfo.transform.GetComponent<PlayerCubeController>().IsForcePower = true;
+            }
+            
         }
-       
+
+
     }
 
 }

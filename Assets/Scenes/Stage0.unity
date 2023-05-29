@@ -435,7 +435,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: d43b73ec233811a4791a669c68e21d11, type: 3}
     m_FontSize: 1
     m_FontStyle: 0
     m_BestFit: 0
@@ -515,7 +515,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: d43b73ec233811a4791a669c68e21d11, type: 3}
     m_FontSize: 1
     m_FontStyle: 0
     m_BestFit: 0
@@ -958,7 +958,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: d43b73ec233811a4791a669c68e21d11, type: 3}
     m_FontSize: 1
     m_FontStyle: 0
     m_BestFit: 0
@@ -1149,7 +1149,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: d43b73ec233811a4791a669c68e21d11, type: 3}
     m_FontSize: 1
     m_FontStyle: 0
     m_BestFit: 0
@@ -1340,7 +1340,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: d43b73ec233811a4791a669c68e21d11, type: 3}
     m_FontSize: 1
     m_FontStyle: 0
     m_BestFit: 0
@@ -1491,7 +1491,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: d43b73ec233811a4791a669c68e21d11, type: 3}
     m_FontSize: 1
     m_FontStyle: 0
     m_BestFit: 0
@@ -2518,7 +2518,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: d43b73ec233811a4791a669c68e21d11, type: 3}
     m_FontSize: 1
     m_FontStyle: 0
     m_BestFit: 0
@@ -2598,7 +2598,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: d43b73ec233811a4791a669c68e21d11, type: 3}
     m_FontSize: 1
     m_FontStyle: 0
     m_BestFit: 0
@@ -2631,7 +2631,7 @@ GameObject:
   - component: {fileID: 1817751112}
   - component: {fileID: 1817751111}
   m_Layer: 5
-  m_Name: DeathCount
+  m_Name: DeathCountUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2838,7 +2838,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: d43b73ec233811a4791a669c68e21d11, type: 3}
     m_FontSize: 1
     m_FontStyle: 0
     m_BestFit: 0
@@ -3034,7 +3034,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: d43b73ec233811a4791a669c68e21d11, type: 3}
     m_FontSize: 1
     m_FontStyle: 0
     m_BestFit: 0
@@ -3222,19 +3222,19 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1295006209115099599, guid: 6dfe2be2c6efdd54db12d97e029553b8, type: 3}
-      propertyPath: Timetext
+      propertyPath: _timetext
       value: 
       objectReference: {fileID: 1826579339}
     - target: {fileID: 1295006209115099599, guid: 6dfe2be2c6efdd54db12d97e029553b8, type: 3}
-      propertyPath: DeathCount
-      value: 
-      objectReference: {fileID: 1817751111}
-    - target: {fileID: 1295006209115099599, guid: 6dfe2be2c6efdd54db12d97e029553b8, type: 3}
-      propertyPath: stage_parent
+      propertyPath: _stageParent
       value: 
       objectReference: {fileID: 44831777}
     - target: {fileID: 1295006209115099599, guid: 6dfe2be2c6efdd54db12d97e029553b8, type: 3}
-      propertyPath: GameClearCanvas
+      propertyPath: _deathCountText
+      value: 
+      objectReference: {fileID: 1817751111}
+    - target: {fileID: 1295006209115099599, guid: 6dfe2be2c6efdd54db12d97e029553b8, type: 3}
+      propertyPath: _gameClearCanvas
       value: 
       objectReference: {fileID: 1303754783}
     m_RemovedComponents: []
