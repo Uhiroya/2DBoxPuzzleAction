@@ -11,9 +11,13 @@ public class RayMamager : MonoBehaviour
     // Start is called before the first frame update
     void Update()
     {
-        int layerMask = ~LayerMask.GetMask(new string[] {"Field"});
-        _hitInfo = Physics2D.Raycast(transform.position, transform.up * 10,10,layerMask);
-        Debug.DrawRay(transform.position, transform.up * 10 );
+
+    }
+    private void FixedUpdate()
+    {
+        int layerMask = ~LayerMask.GetMask(new string[] { "Field" });
+        _hitInfo = Physics2D.Raycast(transform.position, transform.up * 10, 10, layerMask);
+        Debug.DrawRay(transform.position, transform.up * 10);
         // colliderÇÃíÜêgÇ™îÒnullÇ»ÇÁåç∑óLÇË
         if (_hitInfo.collider != null && _hitInfo.rigidbody != null)
         {
@@ -21,14 +25,8 @@ public class RayMamager : MonoBehaviour
             var force = transform.up.normalized * _addForce;
             Debug.Log($"{name}: {force}, {_hitInfo.rigidbody.velocity}");
             _hitInfo.rigidbody.AddForce(force);
-            if(_hitInfo.collider.tag == "Player")
-            {
-                _hitInfo.transform.GetComponent<PlayerCubeController>().IsForcePower = true;
-            }
-            
+
         }
-
-
     }
 
 }

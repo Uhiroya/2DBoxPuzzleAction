@@ -39,6 +39,8 @@ public class PlayerCubeController : MonoBehaviour
     private float _jumpPower = 5f;
     private float _speed;
     private float _inputSpeed = 5 ;
+    [SerializeField]
+    private float _velocityLimit = 15f;
     //屍と当たっているかどうか
     public bool _collisionMe = false;
     
@@ -57,8 +59,8 @@ public class PlayerCubeController : MonoBehaviour
     private float _sTime;
     private float _wTime;
     private float _jTime;
-    //他の物から力が加わっているかどうか
-    public bool IsForcePower = false;
+    //動作キーが押されているかどうか
+    private bool _isInputHorizonalKey = false;
     void Update()
     {
         //連続ジャンプ防止用
@@ -149,13 +151,18 @@ public class PlayerCubeController : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             _speed = -_inputSpeed;
-            _rb.velocity = new Vector2(_speed, _rb.velocity.y);
+            _isInputHorizonalKey = true;
+            
         }
         //右に移動   
-        if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D))
         {
             _speed = _inputSpeed;
-            _rb.velocity = new Vector2(_speed, _rb.velocity.y);
+            _isInputHorizonalKey = true;
+        }
+        else
+        {
+            _isInputHorizonalKey = false;
         }
             
 
@@ -171,12 +178,18 @@ public class PlayerCubeController : MonoBehaviour
             SceneManager.LoadScene("SelectScene");
         }
         print(_rb.velocity);
-
+        //閾値の調整
+        _rb.velocity = new Vector2(Mathf.Clamp(_rb.velocity.x,-15f, 15f), Mathf.Clamp(_rb.velocity.y, -15f, 15f));
     }
     void FixedUpdate()
     {
-        //摩擦、閾値の調整
-        _rb.velocity = new Vector2(Mathf.Clamp(Mathf.Lerp(_rb.velocity.x, 0, 0.1f),-15f,15f), Mathf.Clamp(_rb.velocity.y,-15f,15f));
+        //左右の動き
+        if (_isInputHorizonalKey)
+        {
+            _rb.velocity = new Vector2(_speed, _rb.velocity.y);
+        }
+        //摩擦の調整
+        _rb.velocity = new Vector2(Mathf.Lerp(_rb.velocity.x, 0, 0.1f), _rb.velocity.y);
         if (Mathf.Abs(_rb.velocity.x) < 0.5f)
         {
             _rb.velocity = new Vector2(0, _rb.velocity.y);

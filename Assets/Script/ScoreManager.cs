@@ -4,15 +4,15 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
-    private int Deathcount;
-    private float elaptime;
+    private int _deathcount;
+    private float _elaptime;
     //[SerializeField] private Text highscoreText;
     void Start()
     {
-        Deathcount = PlayerPrefs.GetInt(this.name+"DeathCount", 0);
-        elaptime = PlayerPrefs.GetFloat(this.name+"Time", 0);
-        GetComponent<Text>().text = "MinDeath: " + Deathcount.ToString()+"\nTime"
-            + ((int)elaptime / 60).ToString("00") + ":" + ((elaptime % 60).ToString("00.00"));
+        _deathcount = PlayerPrefs.GetInt(this.name+"DeathCount", 0);
+        _elaptime = PlayerPrefs.GetFloat(this.name+"Time", 0);
+        GetComponent<Text>().text = "MinDeath: " + _deathcount.ToString()+"\nTime"
+            + ((int)_elaptime / 60).ToString("00") + ":" + ((_elaptime % 60).ToString("00.00"));
     }
 
 
